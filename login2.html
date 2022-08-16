@@ -54,6 +54,25 @@ a {
   text-align: center;
   }
 </style>
+<script type="text/javascript">
+    function setCookie(key, value) {
+        var expires = new Date();
+        expires.setTime(expires.getTime() + (1 * 24 * 60 * 60 * 1000));
+        document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+    }
+
+    function getCookie(key) {
+        var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+        return keyValue ? keyValue[2] : null;
+    }
+
+    $(document).ready(function() {
+        setCookie("input1",'1');
+        alert(getCookie("input1"));
+        document.myform.input1.value = getCookie("input1");
+    });
+
+</script>
 
 <form action="login.php" method="POST">
   <div class="container">
